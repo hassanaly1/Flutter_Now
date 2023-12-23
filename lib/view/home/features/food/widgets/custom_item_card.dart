@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:now/helper/classes/cart_counter.dart';
+import 'package:now/helper/widgets/cart_counter.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/view/home/features/food/models/restaurant_model.dart';
+import 'package:now/models/restaurant_model.dart';
 
 class CustomItemCard extends StatelessWidget {
   final int? index;

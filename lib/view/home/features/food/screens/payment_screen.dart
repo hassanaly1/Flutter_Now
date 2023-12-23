@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:now/helper/classes/custom_appbar_widget.dart';
+import 'package:now/helper/widgets/custom_appbar_widget.dart';
 import 'package:now/helper/widgets/custom_button_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
 
@@ -70,8 +70,8 @@ class CustomPaymetWidget extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  CustomPaymetWidget(
-      {required this.text,
+  const CustomPaymetWidget(
+      {super.key, required this.text,
       required this.index,
       required this.isSelected,
       required this.onTap,

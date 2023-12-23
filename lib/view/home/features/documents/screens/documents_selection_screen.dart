@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:now/helper/classes/custom_appbar_widget.dart';
+import 'package:now/helper/widgets/custom_appbar_widget.dart';
 import 'package:now/helper/widgets/custom_button_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
 
@@ -41,7 +41,7 @@ class _DocumentSelectionScreenState extends State<DocumentSelectionScreen> {
                   decoration: InputDecoration(
                     hintText: 'Enter Pickup Location',
                     label: CustomTextWidget(text: 'PICKUP LOCATION'),
-                    icon: Icon(Icons.fmd_good_outlined),
+                    icon: const Icon(Icons.fmd_good_outlined),
                     hintStyle:
                         GoogleFonts.poppins(color: Colors.grey, fontSize: 12.0),
                   ),
@@ -50,7 +50,7 @@ class _DocumentSelectionScreenState extends State<DocumentSelectionScreen> {
                   decoration: InputDecoration(
                     hintText: 'Enter Dropoff Location',
                     label: CustomTextWidget(text: 'DROP LOCATION'),
-                    icon: Icon(CupertinoIcons.location_north),
+                    icon: const Icon(CupertinoIcons.location_north),
                     hintStyle:
                         GoogleFonts.poppins(color: Colors.grey, fontSize: 12.0),
                   ),
@@ -58,7 +58,7 @@ class _DocumentSelectionScreenState extends State<DocumentSelectionScreen> {
               ],
             ),
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           Container(
             padding: const EdgeInsets.all(12.0),
             color: Colors.grey.shade200,
@@ -67,33 +67,33 @@ class _DocumentSelectionScreenState extends State<DocumentSelectionScreen> {
               decoration: InputDecoration(
                 hintText: 'Enter Dropoff Location',
                 label: CustomTextWidget(text: 'DOCUMENT TYPE'),
-                icon: Icon(CupertinoIcons.doc_on_clipboard),
+                icon: const Icon(CupertinoIcons.doc_on_clipboard),
                 suffixIcon: IconButton(
                     onPressed: () {
                       _showBottomSheet(context);
                     },
-                    icon: Icon(Icons.arrow_drop_down)),
+                    icon: const Icon(Icons.arrow_drop_down)),
                 hintStyle:
                     GoogleFonts.poppins(color: Colors.grey, fontSize: 12.0),
               ),
             ),
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           Container(
             padding: const EdgeInsets.all(12.0),
             color: Colors.grey.shade200,
             child: TextFormField(
               decoration: InputDecoration(
                 hintText: 'Any Specific Instructions?',
-                icon: Icon(Icons.edit_note),
+                icon: const Icon(Icons.edit_note),
                 hintStyle:
                     GoogleFonts.poppins(color: Colors.grey, fontSize: 14.0),
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Container(
-            padding: EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(12.0),
             color: Colors.grey.shade200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,7 +154,7 @@ class _DocumentSelectionScreenState extends State<DocumentSelectionScreen> {
                 fontWeight: FontWeight.w600,
               ),
               trailing: IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -196,7 +196,7 @@ class _DocumentSelectionScreenState extends State<DocumentSelectionScreen> {
                 print(selectedTypes);
                 Navigator.of(context).pop();
               },
-              child: Text('Apply'),
+              child: const Text('Apply'),
             ),
           ],
         );

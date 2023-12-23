@@ -23,7 +23,7 @@ class ReUsableProfileTabs extends StatelessWidget {
             textColor: Colors.black,
           ),
           const Spacer(),
-          const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black)
+          const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black38)
         ],
       ),
     );

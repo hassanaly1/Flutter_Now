@@ -31,15 +31,15 @@ class _CartCounterState extends State<CartCounter> {
                 color: Colors.grey.shade200,
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.black54)),
-            padding: EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4.0),
             child: const Icon(Icons.remove, size: 12),
           ),
         ),
-        SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         CustomTextWidget(
           text: numOfItems.toString().padLeft(2, "0"),
         ),
-        SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         GestureDetector(
           onTap: () {
             setState(() {
@@ -51,7 +51,7 @@ class _CartCounterState extends State<CartCounter> {
                 color: Colors.grey.shade200,
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.black54)),
-            padding: EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4.0),
             child: const Icon(Icons.add, size: 12),
           ),
         ),

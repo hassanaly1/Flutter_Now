@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:now/view/bookings/screens/booking_screen.dart';
 import 'package:now/view/home/home_screen.dart';
 import 'package:now/view/profile/screens/profile_screen.dart';
 
@@ -42,8 +43,8 @@ class NavigationController extends GetxController {
   Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    HomeScreen(),
-    Container(color: Colors.orangeAccent),
-    ProfileScreen()
+    const HomeScreen(),
+    BookingScreen(),
+    const ProfileScreen(),
   ];
 }

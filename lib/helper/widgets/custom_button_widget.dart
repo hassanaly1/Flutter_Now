@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:now/helper/utils/colors.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/utils/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String buttonText;
@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          height: height ?? 50,
+          height: height ?? 40,
           width: width,
           decoration: BoxDecoration(
               color: buttonColor ?? AppColors.primaryColor,
@@ -36,7 +36,7 @@ class CustomButton extends StatelessWidget {
           child: Center(
               child: CustomTextWidget(
             text: buttonText,
-            fontSize: 16,
+            fontSize: 14,
             textColor: textColor ?? Colors.white,
             fontWeight: FontWeight.w600,
           ))),
@@ -53,7 +53,8 @@ class CustomButtonWithIcon extends StatelessWidget {
   final double width;
   final double? height;
   final String imageUrl;
-  const CustomButtonWithIcon(
+  final bool? isSVGImage;
+  CustomButtonWithIcon(
       {super.key,
       required this.buttonText,
       required this.onTap,
@@ -62,6 +63,7 @@ class CustomButtonWithIcon extends StatelessWidget {
       this.textColor,
       this.borderColor,
       this.height,
+      this.isSVGImage,
       required this.imageUrl});
 
   @override
@@ -76,19 +78,24 @@ class CustomButtonWithIcon extends StatelessWidget {
               border: Border.all(color: borderColor ?? AppColors.primaryColor)),
           child: Row(
             children: [
-              Spacer(),
-              SvgPicture.asset(
-                imageUrl,
-                width: 30,
-              ),
-              SizedBox(width: 15.0),
+              const Spacer(),
+              isSVGImage == true
+                  ? SvgPicture.asset(
+                      imageUrl,
+                      width: 30,
+                    )
+                  : Image.asset(
+                      imageUrl,
+                      width: 30,
+                    ),
+              const SizedBox(width: 15.0),
               CustomTextWidget(
                 text: buttonText,
                 fontSize: 16,
                 textColor: textColor ?? Colors.white,
                 fontWeight: FontWeight.w600,
               ),
-              Spacer(),
+              const Spacer(),
             ],
           )),
     );

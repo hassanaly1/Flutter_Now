@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:now/helper/classes/custom_appbar_widget.dart';
+import 'package:now/helper/widgets/custom_appbar_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
 
 class Review {
@@ -76,7 +76,7 @@ class ReviewScreen extends StatelessWidget {
     ),
   ];
 
-  ReviewScreen({Key? key});
+  ReviewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +106,7 @@ class CustomReviewWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         height: Get.height * 0.2,
         color: Colors.grey.shade200,
         child: Column(
@@ -118,11 +118,11 @@ class CustomReviewWidget extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   FontAwesomeIcons.starHalfStroke,
                   size: 12.0,
                 ),
-                SizedBox(width: 5.0),
+                const SizedBox(width: 5.0),
                 CustomTextWidget(
                   text: review.rating.toStringAsFixed(1),
                   fontWeight: FontWeight.w500,

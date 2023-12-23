@@ -18,10 +18,10 @@ class ChangeAccountImageModal extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: CustomTextWidget(
                   text: 'Change Account Image',
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                   fontSize: 14.0,
                 ),
               ),

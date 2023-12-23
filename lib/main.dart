@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:now/bottom_bar.dart';
-import 'package:now/utils/colors.dart';
+import 'package:now/helper/utils/colors.dart';
+import 'package:now/start_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         useMaterial3: true,
       ),
-      home: BottomBar(),
+      home: StartScreen(),
     );
   }
 }

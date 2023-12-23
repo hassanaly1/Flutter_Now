@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:now/helper/classes/custom_restaurant_widget.dart';
+import 'package:now/helper/widgets/custom_restaurant_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/view/home/features/food/models/restaurant_model.dart';
+import 'package:now/models/restaurant_model.dart';
 import 'package:now/view/home/features/food/screens/cart_screen.dart';
 import 'package:now/view/home/features/food/screens/reviews_screen.dart';
 import 'package:now/view/home/features/food/widgets/custom_item_card.dart';
@@ -48,62 +48,87 @@ class RestaurantsDetailScreen extends StatelessWidget {
               ))
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          CustomRestaurantWidget(
-            onTap: () {},
-            restaurantModel: restaurantModel,
-          ),
-          TextButton(
-              onPressed: () =>
-                  Get.to(ReviewScreen(), transition: Transition.rightToLeft),
-              child: CustomTextWidget(
-                text: 'All Reviews >',
-                textAlign: TextAlign.end,
-                fontSize: 12.0,
-              )),
-          DefaultTabController(
-            length: 4,
-            child: TabBar(
-              tabAlignment: TabAlignment.fill,
-              labelStyle: GoogleFonts.poppins(
-                  fontSize: 12.0, fontWeight: FontWeight.w700),
-              unselectedLabelStyle: GoogleFonts.poppins(fontSize: 12.0),
-              tabs: const [
-                Tab(text: 'FAST FOOD'),
-                Tab(text: 'BURGERS'),
-                Tab(text: 'PIZZA'),
-                Tab(text: 'CHINESE'),
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView.separated(
-              shrinkWrap: true,
-              physics: const AlwaysScrollableScrollPhysics(),
-              itemCount: restaurantModel.restaurantMenuModel!.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) => FoodBottomSheet(
-                          restaurantModel: restaurantModel,
-                          index: index,
-                        ),
-                      );
-                    },
-                    child: CustomItemCard(
-                      restaurantModel: restaurantModel,
-                      index: index,
-                    ));
+      body: DefaultTabController(
+          length: 4,
+          child: Column(
+            children: [
+              CustomRestaurantWidget(
+                onTap: () {},
+                restaurantModel: restaurantModel,
+              ),
+              TextButton(
+                  onPressed: () => Get.to(ReviewScreen(),
+                      transition: Transition.rightToLeft),
+                  child: CustomTextWidget(
+                    text: 'All Reviews >',
+                    textAlign: TextAlign.end,
+                    fontSize: 12.0,
+                  )),
+              Container(
+                color: Colors.white60,
+                child: TabBar(
+                  tabAlignment: TabAlignment.fill,
+                  labelStyle: GoogleFonts.poppins(
+                      fontSize: 12.0, fontWeight: FontWeight.w700),
+                  unselectedLabelStyle: GoogleFonts.poppins(fontSize: 12.0),
+                  tabs: const [
+                    Tab(text: 'FAST FOOD'),
+                    Tab(text: 'BURGERS'),
+                    Tab(text: 'PIZZA'),
+                    Tab(text: 'CHINESE'),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    CustomFoodCategory(restaurantModel: restaurantModel),
+                    CustomFoodCategory(restaurantModel: restaurantModel),
+                    CustomFoodCategory(restaurantModel: restaurantModel),
+                    CustomFoodCategory(restaurantModel: restaurantModel),
+                  ],
+                ),
+              )
+            ],
+          )),
+    );
+  }
+}
+
+class CustomFoodCategory extends StatelessWidget {
+  const CustomFoodCategory({
+    super.key,
+    required this.restaurantModel,
+  });
+
+  final RestaurantModel restaurantModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white60,
+      child: ListView.separated(
+        shrinkWrap: true,
+        physics: const AlwaysScrollableScrollPhysics(),
+        itemCount: restaurantModel.restaurantMenuModel!.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) => FoodBottomSheet(
+                    restaurantModel: restaurantModel,
+                    index: index,
+                  ),
+                );
               },
-              separatorBuilder: (context, index) => const Divider(),
-            ),
-          )
-        ],
+              child: CustomItemCard(
+                restaurantModel: restaurantModel,
+                index: index,
+              ));
+        },
+        separatorBuilder: (context, index) => const Divider(),
       ),
     );
   }

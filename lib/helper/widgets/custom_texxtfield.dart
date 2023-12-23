@@ -1,41 +1,75 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String hintText;
-  final TextEditingController? controller;
-  Color? fillColor;
-  TextInputType? keyboardType;
-  CustomTextField(
+  final String hintext;
+  final VoidCallback? onTap;
+  final VoidCallback? iconOnTap;
+  final IconData? icon;
+  final Color? color;
+  final bool? enableText;
+  final int mxLines;
+  const CustomTextField(
       {super.key,
-      required this.hintText,
-      this.controller,
-      this.fillColor = Colors.white,
-      this.keyboardType});
-
+      required this.hintext,
+      this.onTap,
+      this.icon,
+      this.color,
+      this.enableText,
+      this.mxLines = 1,
+      this.iconOnTap});
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      keyboardType: keyboardType,
-      style: GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w300,
-        color: Colors.black,
-      ),
-      controller: controller,
-      decoration: InputDecoration(
-        constraints: BoxConstraints(maxWidth: context.width * 0.3),
-        filled: true,
-        fillColor: fillColor,
-        hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
-        border: const OutlineInputBorder(
-          borderSide: BorderSide.none, // Initial border color
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black), // Focused border color
-        ),
-        hintText: hintText,
+    FocusNode focusNode = FocusNode();
+    return InkWell(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.grey[200],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: iconOnTap,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Icon(icon, color: color),
+                  ),
+                ),
+                Expanded(
+                  child: TextField(
+                    onSubmitted: (text) {
+                      // Handle the submitted text
+                      focusNode.unfocus(); // Dismiss the keyboard
+                    },
+                    maxLines: mxLines,
+                    enabled: enableText,
+                    decoration: InputDecoration(
+                      hintText: hintext,
+                      hintStyle: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.black87,
+                      ),
+                      border: InputBorder.none,
+                    ),
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

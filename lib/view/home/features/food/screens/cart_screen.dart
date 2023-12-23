@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:now/helper/classes/custom_appbar_widget.dart';
+import 'package:now/helper/widgets/custom_appbar_widget.dart';
 import 'package:now/helper/widgets/custom_button_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/view/home/features/food/models/restaurant_model.dart';
+import 'package:now/models/restaurant_model.dart';
 import 'package:now/view/home/features/food/screens/payment_screen.dart';
 import 'package:now/view/home/features/food/widgets/custom_item_card.dart';
 
@@ -34,10 +34,10 @@ class CartScreen extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: 10.0),
-          Divider(),
+          const SizedBox(height: 10.0),
+          const Divider(),
           Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             color: Colors.grey.shade200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,14 +76,14 @@ class CartScreen extends StatelessWidget {
               ],
             ),
           ),
-          Divider(),
+          const Divider(),
         ],
       ),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               height: 50,
               color: Colors.grey.shade200,
               child: Column(
@@ -92,13 +92,13 @@ class CartScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.locationPin,
                         size: 12.0,
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       CustomTextWidget(text: 'Delivered to: '),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       CustomTextWidget(
                         text: 'HOME',
                         textColor: Colors.green,
@@ -111,7 +111,7 @@ class CartScreen extends StatelessWidget {
               )),
           CustomButton(
             buttonText: 'Pay \$300',
-            onTap: () => Get.to(PaymentScreen()),
+            onTap: () => Get.to(const PaymentScreen()),
           ),
         ],
       ),

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:now/helper/widgets/custom_button_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/view/home/features/food/models/restaurant_model.dart';
+import 'package:now/models/restaurant_model.dart';
 import 'package:readmore/readmore.dart';
 
 class FoodBottomSheet extends StatelessWidget {
@@ -16,7 +16,7 @@ class FoodBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(0),
-      child: Container(
+      child: SizedBox(
         height: Get.height * 0.7,
         child: Stack(
           children: [
@@ -27,7 +27,7 @@ class FoodBottomSheet extends StatelessWidget {
                       image: AssetImage(
                           restaurantModel!.restaurantMenuModel![index].image),
                       fit: BoxFit.cover),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
                   )),
@@ -50,7 +50,7 @@ class FoodBottomSheet extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.location_on_outlined),
+                            const Icon(Icons.location_on_outlined),
                             CustomTextWidget(
                               text: restaurantModel!.restaurantName!,
                               fontWeight: FontWeight.w400,
@@ -74,10 +74,10 @@ class FoodBottomSheet extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         RatingBar.builder(
                           initialRating: restaurantModel!
-                              .restaurantMenuModel![index!].ratings,
+                              .restaurantMenuModel![index].ratings,
                           itemSize: 20,
                           minRating: 1,
                           direction: Axis.horizontal,
@@ -94,7 +94,7 @@ class FoodBottomSheet extends StatelessWidget {
                           },
                           ignoreGestures: true,
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         CustomTextWidget(
                           text: 'Description',
                           fontSize: 14.0,
@@ -124,7 +124,7 @@ class FoodBottomSheet extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         CustomButton(
                           onTap: () {},
                           buttonText: 'Add to Cart',

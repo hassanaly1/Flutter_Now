@@ -14,13 +14,14 @@ class CustomAppbarWidget extends StatelessWidget
       title: CustomTextWidget(
         text: title,
         fontSize: 16.0,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
       ),
       actions: actions,
+      centerTitle: true,
     );
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(40.0);
+  Size get preferredSize => const Size.fromHeight(40.0);
 }

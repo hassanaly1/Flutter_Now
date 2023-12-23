@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/view/profile/screens/settings_screen.dart';
+import 'package:now/view/profile/screens/feedback_screen.dart';
+import 'package:now/view/profile/screens/saved_address_screen.dart';
+import 'package:now/view/profile/screens/terms_and_condition_screen.dart';
+import 'package:now/view/profile/screens/wallet_screen.dart';
 import 'package:now/view/profile/widgets/change_account_image_modal.dart';
 import 'package:now/view/profile/widgets/change_account_name_dialog.dart';
 import 'package:now/view/profile/widgets/change_account_password_dialog.dart';
@@ -22,18 +25,20 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 //Text and Image
                 CustomTextWidget(
-                  text: 'Profile',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w700,
-                ),
+                    text: 'Profile',
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w700),
                 const SizedBox(height: 15),
-                const CircleAvatar(backgroundColor: Colors.red, radius: 45),
+                const CircleAvatar(
+                  backgroundColor: Colors.red,
+                  radius: 45,
+                  backgroundImage: AssetImage('assets/images/person.jpg'),
+                ),
                 const SizedBox(height: 15),
                 CustomTextWidget(
-                  text: 'Martha Hays',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w700,
-                ),
+                    text: 'Andrew James',
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500),
                 const SizedBox(height: 15),
                 Padding(
                   padding: const EdgeInsets.all(4.0),
@@ -42,18 +47,17 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomTextWidget(
-                        text: 'Settings',
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w700,
-                      ),
+                          text: 'Settings',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500),
                       const SizedBox(height: 10),
-                      ReUsableProfileTabs(
-                          icon: CupertinoIcons.settings,
-                          text: 'App Settings',
-                          onTap: () {
-                            Get.to(SettingsScreen());
-                          }),
-                      const SizedBox(height: 25),
+                      // ReUsableProfileTabs(
+                      //     icon: CupertinoIcons.settings,
+                      //     text: 'App Settings',
+                      //     onTap: () {
+                      //       Get.to(const SettingsScreen());
+                      //     }),
+                      // const SizedBox(height: 25),
                       CustomTextWidget(
                         text: 'Account',
                         fontSize: 14.0,
@@ -95,39 +99,49 @@ class ProfileScreen extends StatelessWidget {
                             );
                           }),
                       const SizedBox(height: 25),
-                      CustomTextWidget(
-                        text: 'About',
-                        fontSize: 14.0,
-                      ),
-                      const SizedBox(height: 10),
                       ReUsableProfileTabs(
-                          icon: Icons.telegram_rounded,
-                          text: 'About Us',
-                          onTap: () {}),
+                          icon: Icons.location_city,
+                          text: 'Saved Addresses',
+                          onTap: () {
+                            Get.to(const SavedAddressScreen(),
+                                transition: Transition.rightToLeft);
+                          }),
                       const SizedBox(height: 25),
+                      ReUsableProfileTabs(
+                          icon: Icons.wallet,
+                          text: 'Wallet',
+                          onTap: () {
+                            Get.to(WalletScreen(),
+                                transition: Transition.rightToLeft);
+                          }),
+                      const SizedBox(height: 25),
+                      CustomTextWidget(text: 'About', fontSize: 14.0),
+                      const SizedBox(height: 10),
                       ReUsableProfileTabs(
                           icon: Icons.feedback,
                           text: 'Help & Feedback',
-                          onTap: () {}),
+                          onTap: () {
+                            Get.to(FeedbackScreen(),
+                                transition: Transition.rightToLeft);
+                          }),
                       const SizedBox(height: 25),
                       ReUsableProfileTabs(
                           icon: Icons.support,
-                          text: 'Support Us',
-                          onTap: () {}),
+                          text: 'Terms & Condition',
+                          onTap: () {
+                            Get.to(TermAndConditionScreen(),
+                                transition: Transition.rightToLeft);
+                          }),
                       const SizedBox(height: 25),
                       Row(
                         children: [
-                          Icon(
-                            Icons.logout,
-                            color: Colors.red,
-                          ),
-                          SizedBox(width: 5),
+                          const Icon(Icons.logout, color: Colors.red),
+                          const SizedBox(width: 5),
                           CustomTextWidget(
-                            text: 'Logout',
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400,
-                            textColor: Colors.red,
-                          ),
+                              text: 'Logout',
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                              textColor: Colors.red),
                         ],
                       )
                     ],

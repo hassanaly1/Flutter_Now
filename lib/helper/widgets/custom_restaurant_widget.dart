@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/view/home/features/food/models/restaurant_model.dart';
+import 'package:now/models/restaurant_model.dart';
 
 class CustomRestaurantWidget extends StatelessWidget {
   final RestaurantModel? restaurantModel;
@@ -40,24 +40,24 @@ class CustomRestaurantWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 FontAwesomeIcons.locationPin,
                 color: Colors.grey,
                 size: 10.0,
               ),
-              SizedBox(width: 5.0),
+              const SizedBox(width: 5.0),
               CustomTextWidget(
                 text: '${restaurantModel!.restaurantDistance!.toString()} km',
                 fontSize: 10.0,
                 textColor: Colors.grey,
               ),
-              SizedBox(width: 5.0),
+              const SizedBox(width: 5.0),
               CustomTextWidget(
                 text: '|',
                 fontSize: 10.0,
                 textColor: Colors.grey,
               ),
-              SizedBox(width: 5.0),
+              const SizedBox(width: 5.0),
               CustomTextWidget(
                 text: restaurantModel!.restaurantLocation!,
                 fontSize: 10.0,
@@ -74,11 +74,11 @@ class CustomRestaurantWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     FontAwesomeIcons.starHalfStroke,
                     size: 12.0,
                   ),
-                  SizedBox(width: 5.0),
+                  const SizedBox(width: 5.0),
                   CustomTextWidget(
                       text: restaurantModel!.restaurantRatings.toString()),
                 ],

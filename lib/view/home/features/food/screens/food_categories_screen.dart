@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:now/helper/classes/custom_appbar_widget.dart';
-import 'package:now/helper/classes/custom_restaurant_widget.dart';
+import 'package:now/helper/widgets/custom_appbar_widget.dart';
+import 'package:now/helper/widgets/custom_restaurant_widget.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
 import 'package:now/helper/widgets/searchbar.dart';
-import 'package:now/view/home/features/food/models/restaurant_model.dart';
+import 'package:now/models/restaurant_model.dart';
 import 'package:now/view/home/features/food/screens/restaurants_detail_screen.dart';
 
 class FoodCategoriesScreen extends StatelessWidget {
@@ -183,7 +183,7 @@ class FoodCategoriesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomSearchBar(),
+            const CustomSearchBar(hintext: 'Search'),
             const SizedBox(height: 10.0),
             CustomTextWidget(text: '28 results found'),
             const SizedBox(height: 10.0),

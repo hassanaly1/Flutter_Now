@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:now/helper/utils/colors.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/utils/colors.dart';
 import 'package:now/view/profile/widgets/change_account_name_dialog.dart';
 
 class ChangeAccountPasswordDialog extends StatefulWidget {
@@ -24,7 +24,7 @@ class _ChangeAccountPasswordDialogState
         children: [
           CustomTextWidget(
             text: 'Change Account Password',
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w500,
             fontSize: 14.0,
           ),
           const Divider(
@@ -41,7 +41,7 @@ class _ChangeAccountPasswordDialogState
             SettingsTextField(
                 controller: _currentPasswordController,
                 hintText: 'Old Password'),
-            SizedBox(height: 15.0),
+            const SizedBox(height: 15.0),
             SettingsTextField(
                 controller: _newPasswordController, hintText: 'New Password'),
           ],

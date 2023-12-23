@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:now/helper/utils/colors.dart';
 import 'package:now/helper/widgets/custom_text_widget.dart';
-import 'package:now/utils/colors.dart';
 
 class ChangeAccountNameDialog extends StatefulWidget {
   const ChangeAccountNameDialog({super.key});
@@ -21,7 +21,7 @@ class _ChangeAccountNameDialogState extends State<ChangeAccountNameDialog> {
         children: [
           CustomTextWidget(
             text: 'Change Account Name',
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w500,
             fontSize: 14.0,
           ),
           const Divider(
